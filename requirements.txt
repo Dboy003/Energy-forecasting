@@ -12,3 +12,4 @@ uvicorn
 requests
 jupyter
 python-dotenv
+statsmodels
