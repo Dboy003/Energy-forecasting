@@ -13,3 +13,6 @@ requests
 jupyter
 python-dotenv
 statsmodels
+openmeteo-requests
+requests-cache
+retry-requests
