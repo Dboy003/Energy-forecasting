@@ -5,13 +5,7 @@ from typing import Optional
 import numpy as np
 import pandas as pd
 import joblib
-import xgboost as xgb
 from pathlib import Path
-import os
-
-# ============================================================
-# Initialisation
-# ============================================================
 
 app = FastAPI(
     title="Energy Forecasting API",
@@ -19,17 +13,13 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Chemin flexible — fonctionne en local ET sur Docker/Render
+# Chemin vers models/ — fonctionne en local ET sur Docker/Render
 BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR / "data" / "processed"
+MODEL_DIR = BASE_DIR / "models"
 
-model        = joblib.load(DATA_DIR / "model_xgboost.pkl")
+model        = joblib.load(MODEL_DIR / "model_xgboost.pkl")
 MARGE_IC     = 697
 MAPE_ATTENDU = 0.74
-
-# ============================================================
-# Schémas de données
-# ============================================================
 
 class PredictionInput(BaseModel):
     datetime          : str
@@ -54,10 +44,6 @@ class PredictionOutput(BaseModel):
     prediction_mw         : float
     confidence_interval   : dict
     mape_expected_percent : float
-
-# ============================================================
-# Endpoints
-# ============================================================
 
 @app.get("/")
 def root():

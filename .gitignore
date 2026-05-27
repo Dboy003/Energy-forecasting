@@ -1,10 +1,13 @@
-﻿# Environnement virtuel
+# Environnement virtuel
 venv/
 .env
 
-# Données (trop lourdes pour GitHub)
+# Donn?es brutes et trait?es (trop lourdes)
 data/raw/
 data/processed/
+
+# Mod?les ? inclus dans models/ (pas ici)
+# models/ ? NE PAS ignorer
 
 # Python
 __pycache__/
@@ -15,6 +18,6 @@ __pycache__/
 # VS Code
 .vscode/
 
-# Système
+# Syst?me
 .DS_Store
 Thumbs.db
