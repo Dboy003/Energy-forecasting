@@ -1,13 +1,13 @@
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from datetime import datetime
 from typing import Optional
 import numpy as np
 import pandas as pd
 import joblib
 import xgboost as xgb
 from pathlib import Path
+import os
 
 # ============================================================
 # Initialisation
@@ -19,13 +19,12 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Chemin absolu vers les fichiers du projet
-BASE_DIR  = Path(__file__).resolve().parent.parent
-DATA_DIR  = BASE_DIR / "data" / "processed"
+# Chemin flexible — fonctionne en local ET sur Docker/Render
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data" / "processed"
 
-# Chargement du modèle
-model     = joblib.load(DATA_DIR / "model_xgboost.pkl")
-MARGE_IC  = 697
+model        = joblib.load(DATA_DIR / "model_xgboost.pkl")
+MARGE_IC     = 697
 MAPE_ATTENDU = 0.74
 
 # ============================================================
@@ -120,7 +119,7 @@ def predict(data: PredictionInput):
             "hour_x_weekend"   : dt.hour * int(dt.dayofweek >= 5),
         }
 
-        X = pd.DataFrame([features])
+        X    = pd.DataFrame([features])
         pred = float(model.predict(X)[0])
 
         return PredictionOutput(
