@@ -16,3 +16,5 @@ statsmodels
 openmeteo-requests
 requests-cache
 retry-requests
+streamlit
+plotly
