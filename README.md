@@ -20,6 +20,7 @@ Le gestionnaire de réseau électrique PJM doit équilibrer en permanence produc
 
 ## 🏗️ Architecture du projet
 
+```text
 energy-forecasting/
 ├── notebooks/
 │   ├── 01_exploration.ipynb          # Analyse et nettoyage des données
@@ -33,9 +34,10 @@ energy-forecasting/
 ├── models/                           # Modèles entraînés
 ├── data/
 │   ├── raw/                          # Données brutes (non versionnées)
-│   └── processed/                    # Données traitées (non versionnées)
+│   └── processed/                    # Données traitées
+├── app.py                            # Dashboard Streamlit
 └── Dockerfile
-
+```
 ---
 
 ## 📊 Dataset
