@@ -1,0 +1,6 @@
+Modèle,MAPE,MAE,RMSE
+Moyenne Mobile,11.71,3543,4438
+Naïf Saisonnier,6.78,2125,2917
+Régression Linéaire,2.55,797,1015
+LSTM,1.75,527,673
+XGBoost,0.65,202,281

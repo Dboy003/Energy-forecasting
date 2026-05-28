@@ -1,0 +1,2 @@
+Modèle,MAPE_val,MAPE_test,MAE_test,RMSE_test,IC_methode,IC_couverture,IC_largeur_MW
+XGBoost H+1,0.65,0.74,240,328,Conformal 97.5%,95.1,1394

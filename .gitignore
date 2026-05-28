@@ -2,12 +2,8 @@
 venv/
 .env
 
-# Donn?es brutes et trait?es (trop lourdes)
+# Donn?es brutes uniquement
 data/raw/
-data/processed/
-
-# Mod?les ? inclus dans models/ (pas ici)
-# models/ ? NE PAS ignorer
 
 # Python
 __pycache__/
